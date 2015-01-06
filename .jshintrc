@@ -14,5 +14,10 @@
   "undef": true,
   "unused": true,
   "strict": true,
-  "jquery": true
+  "browserify": true,
+  "globals": {
+    "module": false,
+    "require": false
+  }
+//  "devel": true
 }

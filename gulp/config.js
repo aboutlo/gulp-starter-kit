@@ -9,6 +9,11 @@ module.exports = {
       baseDir: dest
     }
   },
+
+  js:{
+    src: src + "/scripts/**/*.js",
+    dest: dest + "/js"
+  },
   sass: {
     src: src + "/css/*.{sass,scss}",
     dest: dest + '/css',

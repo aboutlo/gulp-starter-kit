@@ -1,6 +1,7 @@
 var $ = require('jquery');
-AppView = require('./views/app.js');
+var AppView = require('./views/app.js');
 
 $(function() {
+  'use strict';
   new AppView( { el: '#content' });
 });
