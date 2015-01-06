@@ -1,20 +1,25 @@
 'use strict';
 
 var $ = require('jquery');
-var Backbone = require('backbone');
 var _ = require('underscore');
+var Backbone = require('backbone');
 Backbone.$ = $;
+
+var User = require('../models/user.js');
+var template = require('../templates/status.tpl');
 
 module.exports = Backbone.View.extend({
 
+  template: template,
+
   initialize: function(){
-    console.log('initialize spatch app');
-    this.render();
+    this.user = new User();
+    this.listenTo(this.user,'change', this.render);
+    this.user.set({ userName:'Anonymous User', status:'Connected'});
   },
 
   render: function(){
-    console.log(' spatch app render!');
-    this.$el.html('<p>test test</p>');
+    this.$el.html(template(this.user.attributes));
     return this;
   }
 
