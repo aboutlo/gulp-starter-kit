@@ -1,4 +1,7 @@
 var gulp = require('gulp');
+var config  = require('../config').production;
 
-// Run this to compress all the things!
-gulp.task('production', ['images', 'minifyCss', 'uglifyJs']);
+gulp.task('production', ['images', 'markup', 'browserify', 'minifyCss', 'uglifyJs'],function(){
+    return gulp.src(config.htmlSrc)
+           .pipe(gulp.dest(config.dist))
+});

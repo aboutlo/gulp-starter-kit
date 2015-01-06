@@ -1,5 +1,6 @@
-var dest = "./build";
+var dest = './build';
 var src = './app';
+var dist = './dist';
 
 module.exports = {
   browserSync: {
@@ -32,14 +33,17 @@ module.exports = {
     bundleConfigs: [ {
       entries: src + '/scripts/main.js',
       dest: dest + '/js',
-      outputName: 'main.js',
+      outputName: 'main.js'
       // list of externally available modules to exclude from the bundle
-      external: ['jquery', 'underscore']
+      // TODO we could use public CDN instead.
+      //external: ['jquery', 'underscore']
     }]
   },
+
   production: {
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
-    dest: dest
+    htmlSrc: dest + '/*.html',
+    dist: dist
   }
 };
