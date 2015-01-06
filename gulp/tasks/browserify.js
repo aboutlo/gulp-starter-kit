@@ -33,6 +33,15 @@ var browserifyTask = function(callback, devMode) {
     }
 
     var b = browserify(bundleConfig);
+    b.transform('jstify', {
+      templateOpts: {
+        interpolate: /\{\{(.+?)\}\}/g
+      }/*,
+      minifierOpts: {
+        removeComments: false,
+        removeRedundantAttributes: true
+      }*/
+    });
 
     var bundle = function() {
       // Log when bundling starts
