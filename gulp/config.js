@@ -1,5 +1,5 @@
 var dest = "./build";
-var src = './src';
+var src = './app';
 
 module.exports = {
   browserSync: {
@@ -9,8 +9,8 @@ module.exports = {
     }
   },
   sass: {
-    src: src + "/sass/*.{sass,scss}",
-    dest: dest,
+    src: src + "/css/*.{sass,scss}",
+    dest: dest + '/css',
     settings: {
       // Required if you want to use SASS syntax
       // See https://github.com/dlmanning/gulp-sass/issues/81
@@ -23,31 +23,23 @@ module.exports = {
     dest: dest + "/images"
   },
   markup: {
-    src: src + "/htdocs/**",
+    src: src + "/*.html",
     dest: dest
   },
   browserify: {
     // A separate bundle will be generated for each
     // bundle config in the list below
-    bundleConfigs: [{
-      entries: src + '/javascript/global.coffee',
-      dest: dest,
-      outputName: 'global.js',
-      // Additional file extentions to make optional
-      extensions: ['.coffee', '.hbs'],
-      // list of modules to make require-able externally
-      require: ['jquery', 'underscore']
-    }, {
-      entries: src + '/javascript/page.js',
-      dest: dest,
-      outputName: 'page.js',
+    bundleConfigs: [ {
+      entries: src + '/scripts/main.js',
+      dest: dest + '/js',
+      outputName: 'main.js',
       // list of externally available modules to exclude from the bundle
       external: ['jquery', 'underscore']
     }]
   },
   production: {
-    cssSrc: dest + '/*.css',
-    jsSrc: dest + '/*.js',
+    cssSrc: dest + '/css/*.css',
+    jsSrc: dest + '/js/*.js',
     dest: dest
   }
 };
