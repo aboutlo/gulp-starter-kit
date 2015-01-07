@@ -1,7 +1,7 @@
 # Spatch Web App 
 
 ## Requirements
-
+	brew install npm
     npm install phantomjs -g
 
 ## Build && Run
