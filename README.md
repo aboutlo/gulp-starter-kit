@@ -12,16 +12,18 @@ Install all dependencies and launch the web app.
 
 Update sources or tests to recompile
 
+## test 
+Destroy build and dist directories
+
+    gulp test
+
 ## clean 
 Destroy build and dist directories
 
     gulp clean
 
-
-
-
 ## Deploy
-
+it prepare all files in `dist` directory 
     gulp production 
 
 ## TODO
