@@ -1,5 +1,6 @@
 var dest = './build';
 var src = './app';
+var test = './test';
 var dist = './dist';
 
 module.exports = {
@@ -12,8 +13,10 @@ module.exports = {
 
   js:{
     src: src + "/scripts/**/*.js",
-    dest: dest + "/js"
+    dest: dest + "/js",
+    test: test + '/**/*.js'
   },
+
   sass: {
     src: src + "/css/*.{sass,scss}",
     dest: dest + '/css',

@@ -1,8 +1,9 @@
-var gulp       = require('gulp');
+var gulp = require('gulp');
 var mochify = require('mochify');
+var config  = require('../config').js;
 
 gulp.task('mochify', function () {
-  mochify('./test/**/*.js', {
+  mochify( config.test, {
     reporter : 'spec',
     cover    : true
     //require : 'chai'

@@ -7,7 +7,7 @@ Backbone.$ = $;
 module.exports = Backbone.Model.extend({
 
   initialize: function(){
-    //console.log('User init');
+    console.log('User init');
   }
 
 

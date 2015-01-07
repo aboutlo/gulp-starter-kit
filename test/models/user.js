@@ -1,4 +1,4 @@
-var User = require("../../app/scripts/models/user.js");
+var User = require('../../app/scripts/models/user');
 var expect = require('chai').expect;
 
 describe("User", function(){
@@ -10,11 +10,11 @@ describe("User", function(){
     });
   });
 
-  it("should have name", function(){
+  it("has name", function(){
     expect(this.user.get('username')).to.equal('Joe Schmoe');
   });
 
-  it("should have status", function(){
+  it("has status", function(){
     expect(this.user.get('status')).to.equal('online');
   });
 
