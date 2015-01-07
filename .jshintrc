@@ -15,9 +15,10 @@
   "unused": true,
   "strict": true,
   "browserify": true,
+  "mocha": true,
   "globals": {
     "module": false,
     "require": false
   }
-//  "devel": true
+
 }
