@@ -12,13 +12,13 @@ module.exports = {
   },
 
   js:{
-    src: src + "/scripts/**/*.js",
-    dest: dest + "/js",
+    src: src + '/scripts/**/*.js',
+    dest: dest + '/js',
     test: test + '/**/*.js'
   },
 
   sass: {
-    src: src + "/css/*.{sass,scss}",
+    src: src + '/css/*.{sass,scss}',
     dest: dest + '/css',
     settings: {
       // Required if you want to use SASS syntax
@@ -28,11 +28,11 @@ module.exports = {
     }
   },
   images: {
-    src: src + "/images/**",
-    dest: dest + "/images"
+    src: src + '/images/**',
+    dest: dest + '/images'
   },
   markup: {
-    src: src + "/*.html",
+    src: src + '/*.html',
     dest: dest
   },
   browserify: {
@@ -42,7 +42,6 @@ module.exports = {
       entries: src + '/scripts/main.js',
       dest: dest + '/js',
       outputName: 'main.js',
-      debug : true
       // list of externally available modules to exclude from the bundle
       // TODO we could use public CDN instead.
       //external: ['jquery', 'underscore']

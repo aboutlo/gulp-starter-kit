@@ -7,7 +7,9 @@ var config  = require('../config').js;
 gulp.task('mochify', function () {
   mochify( config.test, {
     reporter : 'spec',
-    cover    : true
-    //TODO require  : 'chai' and expose expect
+    debug: true,
+    //cover    : true,
+    consolify : 'build/runner.html'
+    //TODO require  : 'chai' and expose expect   https://github.com/gulpjs/gulp/blob/master/docs/recipes/mocha-test-runner-with-gulp.md
   }).bundle();
 });
