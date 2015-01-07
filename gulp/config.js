@@ -41,7 +41,8 @@ module.exports = {
     bundleConfigs: [ {
       entries: src + '/scripts/main.js',
       dest: dest + '/js',
-      outputName: 'main.js'
+      outputName: 'main.js',
+      debug : true
       // list of externally available modules to exclude from the bundle
       // TODO we could use public CDN instead.
       //external: ['jquery', 'underscore']
