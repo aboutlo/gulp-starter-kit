@@ -5,7 +5,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
-var User = require('../models/user.js');
+var User = require('../models/user');
 var template = require('../templates/status.tpl');
 
 module.exports = Backbone.View.extend({
