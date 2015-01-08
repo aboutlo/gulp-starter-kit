@@ -2,8 +2,8 @@
 
 module.exports = {
 
-  version: '0.0.0',
-  environment: 'development',
-  authURL: ''
+  description: '/* @echo description */' || 'development' ,
+  buildNumber: '/* @echo buildNumber */' || '0.0.0',
+  authURL: '/* @echo authURL */' || 'http://localhost'
 
 };
