@@ -41,17 +41,32 @@ module.exports = {
     bundleConfigs: [ {
       entries: src + '/scripts/main.js',
       dest: dest + '/js',
-      outputName: 'main.js',
+      outputName: 'main.js'
       // list of externally available modules to exclude from the bundle
       // TODO we could use public CDN instead.
       //external: ['jquery', 'underscore']
     }]
   },
-
-  production: {
+  deploy: {
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
     htmlSrc: dest + '/*.html',
     dist: dist
+  },
+  environments:{
+    development: {
+      description: 'development',
+      authURL: 'http://locahost'
+    },
+    staging: {
+      description: 'staging',
+      authURL: 'http://staging.spatch.co'
+    },
+    production: {
+      description: 'production',
+      authURL: 'spatch.co'
+    }
+
   }
+
 };
