@@ -17,9 +17,16 @@ var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
+var environments  = require('../config').environments;
+var preprocessify = require('preprocessify');
 var _            = require('lodash');
 
-var browserifyTask = function(callback, devMode) {
+var browserifyTask = function(callback) {
+
+  var env = process.env.NODE_ENV ||'development';
+  var buildNumber = process.env.BUILD_NUMBER ||'BUILD_NUMBER_UNKNOWN';
+  // Start browserify task with devMode === true
+  var devMode = env === 'development';
 
   var bundleQueue = config.bundleConfigs.length;
 
@@ -34,6 +41,12 @@ var browserifyTask = function(callback, devMode) {
     }
 
     var b = browserify(bundleConfig);
+
+    _.extend(environments[env],{buildNumber:buildNumber});
+    // This will replace "/* @echo FOO */" with "bar"
+    b.transform(preprocessify(environments[env]));
+
+    // Compile underscore templates using mustache syntax
     b.transform('jstify', {
       templateOpts: {
         interpolate: /\{\{(.+?)\}\}/g
