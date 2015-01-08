@@ -1,14 +1,14 @@
-# Spatch Web App 
+# Web App 
 
 ## Requirements
-	brew install npm
+    brew install npm
     npm install phantomjs -g
 
 ## Build && Run
 Install all dependencies and launch the web app. 
 
     npm install
-    gulp
+    gulp clean && gulp 
 
 Update sources or tests to recompile. 
 
@@ -25,10 +25,18 @@ Destroy build and dist directories
     gulp clean
 
 ## Deploy
-it prepare all files in `dist` directory
- 
-    gulp production 
+it prepare all files in `dist` directory. 
+
+    NODE_ENV=development|staging|production BUILD_NUMBER=0.0.1 gulp deploy
+
+Example
+
+    NODE_ENV=development gulp deploy
+    
+**Notice: BUILD_NUMBER is handler by jenkins**
 
 ## TODO
-- on development environment first time sourceMapping and templates are missing.
+- refactorin app/scripts to app/js
+- on development environment first time sourceMapping and templates are missing. Task dependencies need a review 
 - Compress file before put on s3
+- Use https://www.npmjs.com/package/gulp-rev to create unique js and css files.
