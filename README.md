@@ -3,6 +3,17 @@
 ## Requirements
     brew install npm
     npm install phantomjs -g
+    
+AWS Keys (only to deploy)
+
+Create a directory `~/aws/credentials`
+Then put a JSON `spatch-credentials.json` inside the directory:
+
+    {
+      'accessKeyId': 'AAAAAAAAAAAAAAAAAAAAA',
+      'secretAccessKey': '000000000000000000000000000000000000000000'
+    }
+
 
 ## Build && Run
 Install all dependencies and launch the web app. 
@@ -36,7 +47,9 @@ Example
 **Notice: BUILD_NUMBER is handler by jenkins**
 
 ## TODO
-- refactorin app/scripts to app/js
+- refactoring app/scripts to app/js
+- add watch options to mochify if env === development and remove from watch task
+- create consolify task stating from mochify
 - on development environment first time sourceMapping and templates are missing. Task dependencies need a review 
 - Compress file before put on s3
 - Use https://www.npmjs.com/package/gulp-rev to create unique js and css files.
