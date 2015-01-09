@@ -21,12 +21,12 @@ var environments  = require('../config').environments;
 var preprocessify = require('preprocessify');
 var _            = require('lodash');
 
-var browserifyTask = function(callback) {
+var browserifyTask = function(callback,devMode) {
 
   var env = process.env.NODE_ENV ||'development';
   var buildNumber = process.env.BUILD_NUMBER ||'BUILD_NUMBER_UNKNOWN';
   // Start browserify task with devMode === true
-  var devMode = env === 'development';
+  //var devMode = env === 'development';
 
   var bundleQueue = config.bundleConfigs.length;
 

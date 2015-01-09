@@ -4,5 +4,5 @@ var browserifyTask = require('./browserify');
 
 gulp.task('watchify', function(callback) {
 
-browserifyTask(callback);
+browserifyTask(callback, true);
 });
