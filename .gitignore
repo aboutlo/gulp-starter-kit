@@ -1,4 +1,5 @@
 .sass-cache
+.awspublish*
 build
 dist
 node_modules
