@@ -7,9 +7,9 @@ var gutil = require('gulp-util');
 
 gulp.task('deploy', ['images', 'markup', 'jshint', 'browserify', 'minifyCss', 'uglifyJs'],function(){
 
-  // copy index.html on dist
-  //gulp.src(config.htmlSrc)
-  //         .pipe(gulp.dest(config.dist));
+  //copy index.html on dist
+  gulp.src(config.htmlSrc)
+           .pipe(gulp.dest(config.dist));
 
  var aws = JSON.parse(fs.readFileSync(process.env.HOME + '/.aws/credentials/spatch-credentials.json'));
 
