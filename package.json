@@ -31,6 +31,7 @@
     "imagemin": "^3.1.0",
     "imagemin-gifsicle": "^4.0.0",
     "imagemin-jpegtran": "^4.0.0",
+    "imagemin-optipng": "^4.0.0",
     "jshint-stylish": "^1.0.0",
     "jstify": "^0.7.0",
     "lodash": "^2.4.1",
