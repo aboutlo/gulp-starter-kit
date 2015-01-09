@@ -35,6 +35,7 @@
     "require-dir": "^0.1.0",
     "rfile": "^1.0.0",
     "through": "^2.3.6",
+    "uglify-js": "^2.4.16",
     "vinyl-source-stream": "~0.1.1",
     "watchify": "^2.2.1"
   },
