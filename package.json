@@ -31,6 +31,7 @@
     "jstify": "^0.7.0",
     "lodash": "^2.4.1",
     "mochify": "^2.1.1",
+    "node-notifier": "^4.0.3",
     "preprocessify": "0.0.3",
     "pretty-hrtime": "~0.2.1",
     "require-dir": "^0.1.0",
