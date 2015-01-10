@@ -17,6 +17,8 @@ gulp.task('deploy', ['images', 'markup', 'jshint', 'browserify', 'minifyCss', 'u
   var bucket = environment + '-app.spatch.co';
   var region = 'eu-west-1';
 
+  gutil.log('deploy to:', bucket);
+
   // More option here https://github.com/LearnBoost/knox#client-creation-options
   var publisher = awspublish.create({ key: aws.accessKeyId,  secret: aws.secretAccessKey, bucket: bucket, region: region });
 
