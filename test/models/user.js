@@ -16,7 +16,7 @@ describe('User', function(){
   });
 
   it('has status', function(){
-    expect(this.user.get('status')).to.equal('offline');
+    expect(this.user.get('status')).to.equal('online');
   });
 
 });
