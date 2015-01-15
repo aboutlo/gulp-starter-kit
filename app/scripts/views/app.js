@@ -5,7 +5,8 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
-var EventBus = require('../utils/EventBus').EventBus();
+//var EventBus = require('../utils/EventBus').EventBus();
+var UserActions = require('../actions/UserActions');
 var config = require('../config');
 var User = require('../models/user');
 var MainView = require('./MainView');
@@ -20,17 +21,20 @@ var App = Backbone.View.extend({
     //this.setElement(options.el);
     console.log('App register to GlobalEvent');
 
-    EventBus.on('GLOBAL:TEST',function(e){
-      console.log('APp get global event:' + e);
-    });
+    //EventBus.on('GLOBAL:TEST',function(e){
+    //  console.log('APp get global event:' + e);
+    //});
 
 
-    this.user = new User();
-    this.mainView = new MainView({el: '#main'});
+    this.user = new User({username:'Anonymoys',status:'offline'});
+    this.mainView = new MainView({el: '#main', model:this.user});
     this.$footer = this.$el.find('#footer');
 
     this.listenTo(this.user,'change', this.render);
-    this.user.set({ userName:'Anonymous User', status:'Connected'});
+
+    UserActions.authenticate('smith','1234');
+
+    //this.user.set({ userName:'Anonymous', status:'offline'});
 
   },
 
