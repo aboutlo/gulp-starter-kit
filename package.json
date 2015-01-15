@@ -1,17 +1,31 @@
 {
-  "name": "BasicWebApp",
-  "version": "0.0.1",
-  "description": "Basic Web App",
+  "name": "BBF",
+  "version": "0.1.0",
+  "description": "A gulp scafold to start a Backbone app using the Flux architecture and Browserify",
+  "keywords": [
+    "gulpplugin",
+    "aws",
+    "s3",
+    "publish"
+  ],
+  "homepage": "https://TODO",
+  "bugs": {
+    "url": "https://TODO"
+  },
+  "author": {
+    "name": "Lorenzo Sicilia",
+    "email": "lorenzo.sicilia@gmail.com",
+    "url": "https://github.com/aboutlo"
+  },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:thusfresh/web-app.git"
+    "url": "git@github.com:aboutlo/bbf.git"
   },
   "devDependencies": {
     "browser-sync": "~1.3.6",
     "browserify": "^8.0.2",
     "browserify-shim": "^3.8.2",
     "chai": "^1.10.0",
-    "coffeeify": "~0.7.0",
     "del": "^1.1.1",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.0.0",
@@ -39,6 +53,7 @@
   },
   "dependencies": {
     "backbone": "~1.1.2",
+    "flux": "^2.0.1",
     "jquery": "~2.1.0",
     "underscore": "^1.7.0"
   }

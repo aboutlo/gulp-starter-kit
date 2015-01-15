@@ -1,0 +1,8 @@
+'use strict';
+
+module.exports = {
+
+  USER_AUTHENTICATE: 'USER:AUTHENTICATE',
+  USER_DEAUTHENTICATE: 'USER:DEAUTHENTICATE'
+
+};

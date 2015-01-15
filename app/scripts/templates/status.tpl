@@ -1,2 +1,2 @@
-<div><strong>{{userName}}</strong></div>
+<div><strong>{{username}}</strong></div>
 <div>{{status}}</div>
