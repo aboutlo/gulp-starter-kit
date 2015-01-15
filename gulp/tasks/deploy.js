@@ -2,8 +2,22 @@
 var gulp = require('gulp');
 var config  = require('../config').deploy;
 var fs = require('fs');
-var awspublish = require('gulp-awspublish');
-var gutil = require('gulp-util');
+var gzip = require('gulp-gzip');
+
+// S3 with JSON
+var credentials = JSON.parse(fs.readFileSync(process.env.HOME + '/.aws/credentials/spatch-credentials.json'));
+var s3 = require('gulp-s3-upload')({
+  accessKeyId:        credentials.accessKeyId,
+  secretAccessKey:    credentials.secretAccessKey,
+  region: 'eu-west-1'
+});
+
+/*
+// S3 with AIM User (not tested)
+var s3 = require('gulp-s3-upload')({
+  region: 'eu-west-1'
+});
+*/
 
 gulp.task('deploy', ['images', 'markup', 'jshint', 'browserify', 'minifyCss', 'uglifyJs'],function(){
 
@@ -11,42 +25,21 @@ gulp.task('deploy', ['images', 'markup', 'jshint', 'browserify', 'minifyCss', 'u
   gulp.src(config.htmlSrc)
            .pipe(gulp.dest(config.dist));
 
- var aws = JSON.parse(fs.readFileSync(process.env.HOME + '/.aws/credentials/spatch-credentials.json'));
-
   var environment = process.env.NODE_ENV || 'development';
   var bucket = environment + '-app.spatch.co';
-  var region = 'eu-west-1';
-
-  gutil.log('deploy to:', bucket);
-
-  // More option here https://github.com/LearnBoost/knox#client-creation-options
-  var publisher = awspublish.create({ key: aws.accessKeyId,  secret: aws.secretAccessKey, bucket: bucket, region: region });
-
-  // define custom headers
-  var headers = {
-    'Cache-Control': 'max-age=315360000, no-transform, public'
-    // ...
-  };
 
   var src = [config.dist + '/**/*.*'] ;
-  gutil.log('src', src);
 
-  return gulp.src(src)
-
-      // gzip, Set Content-Encoding headers and add .gz extension
-      //.pipe(awspublish.gzip({ ext: '.gz' }))
-      .pipe(awspublish.gzip())
-
-      // publisher will add Content-Length, Content-Type and headers specified above
-      // If not specified it will set x-amz-acl to public-read by default
-      .pipe(publisher.publish(headers))
-
-      // create a cache file to speed up consecutive uploads
-      .pipe(publisher.cache())
-      //console.log('cache');
-
-      // print upload updates to console
-      .pipe(awspublish.reporter());
+  gulp.src(src)
+    .pipe(gzip({ append: false }))
+    .pipe(s3({
+      Bucket: bucket, //  Required
+      ACL:    'public-read',       //  Needs to be user-defined
+      ContentEncoding: 'gzip',
+      CacheControl: 'max-age=315360000, no-transform, public',
+      uploadNewFilesOnly: true
+    }))
+  ;
 
 });
 
