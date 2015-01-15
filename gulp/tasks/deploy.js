@@ -35,10 +35,9 @@ gulp.task('deploy', ['images', 'markup', 'jshint', 'browserify', 'minifyCss', 'u
     .pipe(s3({
       Bucket: bucket, //  Required
       ACL:    'public-read',       //  Needs to be user-defined
-      uploadNewFilesOnly: true,
-      metadataMap: {
-        'Cache-Control': 'max-age=315360000, no-transform, public',
-      }
+      ContentEncoding: 'gzip',
+      CacheControl: 'max-age=315360000, no-transform, public',
+      uploadNewFilesOnly: true
     }))
   ;
 
