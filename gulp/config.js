@@ -12,7 +12,7 @@ module.exports = {
   },
 
   js:{
-    src: src + '/scripts/**/*.js',
+    src: src + '/js/**/*.js',
     dest: dest + '/js',
     test: test + '/**/*.js'
   },
@@ -39,7 +39,7 @@ module.exports = {
     // A separate bundle will be generated for each
     // bundle config in the list below
     bundleConfigs: [ {
-      entries: src + '/scripts/main.js',
+      entries: src + '/js/main.js',
       dest: dest + '/js',
       outputName: 'main.js'
       // list of externally available modules to exclude from the bundle

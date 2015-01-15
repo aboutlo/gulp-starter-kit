@@ -1,5 +1,5 @@
 'use strict';
-var User = require('../../app/scripts/models/user');
+var User = require('../../app/js/models/user');
 var expect = require('chai').expect;
 
 describe('User', function(){
