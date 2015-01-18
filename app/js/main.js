@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var AppView = require('./views/app');
+var AppView = require('./views/AppView');
 
 $(function() {
   'use strict';

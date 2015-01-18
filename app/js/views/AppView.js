@@ -12,14 +12,14 @@ var User = require('../models/user');
 var MainView = require('./MainView');
 
 
-var App = Backbone.View.extend({
+var AppView = Backbone.View.extend({
 
   main: require('../templates/status.tpl'),
   footer: require('../templates/footer.tpl'),
 
   initialize: function(){
     //this.setElement(options.el);
-    console.log('App register to GlobalEvent');
+    console.log('AppView register to GlobalEvent');
 
     //EventBus.on('GLOBAL:TEST',function(e){
     //  console.log('APp get global event:' + e);
@@ -47,6 +47,6 @@ var App = Backbone.View.extend({
 
 });
 
-App.Dispatcher = _.extend({}, Backbone.Events);
+AppView.Dispatcher = _.extend({}, Backbone.Events);
 
-module.exports = App;
+module.exports = AppView;
