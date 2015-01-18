@@ -1,10 +1,7 @@
-# gulp-starter (Browserify + Backbone & Flux Pattern) 
+# BBF (Browserify + Backbone + Flux Pattern) 
 ============
 
 This projext is based on <https//github.com/greypants/gulp-starter> but has been heavily adapted to my needs
-
-Starter Gulp + Browserify project with examples of how to accomplish some common tasks and workflows. 
-Read the [blog post](http://viget.com/extend/gulp-browserify-starter-faq) for more context, and check out the [Wiki](https://github.com/greypants/gulp-starter/wiki) for some good background knowledge.
 
 Includes the following tools, tasks, and workflows:
 
@@ -13,12 +10,13 @@ Includes the following tools, tasks, and workflows:
 - [SASS](http://sass-lang.com/) (super fast libsass with [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
 - [Image optimizationn](https://www.npmjs.com/package/gulp-imagemin)
-- [Mochify](https://TODO)
-- [Chai](https://TODO)
-- [Gulp-s3-upload](https://TODO)
+- [jstify](http://TODO) for compile underscore template
+- [Mochify](https://TODO) for run mocha tests
+- [Chai](https://TODO) for `expect` in the tests
+- [Gulp-s3-upload](https://TODO) for deploy on AWS s3
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
 - Multi environment deploy via s3 (development|staging|production)
-- Multiple bundles with shared dependencies (Need review)
+
 
 ## Install
 
@@ -51,7 +49,7 @@ This will run the `default` gulp task defined in `gulp/tasks/default.js`, which 
 
 
 ## test 
-Run tests once.
+Run tests once ( Ideal on CI )
 
     gulp test
 
@@ -107,8 +105,10 @@ All App settings have been abstracted into a centralized config object in `app/c
 Add any property you need. The properties are filled reading the object `environments` in `gulp/config.js` (default:development) 
 
 ## TODO
-- refactoring app/scripts to app/js
+- configure bucket name as external resource
+- set gzip level to 9.
 - add watch options to mochify if env === development and remove from watch task
 - create consolify task stating from mochify
+- Multiple bundles with shared dependencies (Need review)
 - on development environment first time sourceMapping and templates are missing. Task dependencies need a review 
 - Use https://www.npmjs.com/package/gulp-rev to create unique js and css files.
