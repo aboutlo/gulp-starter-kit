@@ -55,15 +55,15 @@ module.exports = {
   },
   environments:{
     development: {
-      description: 'development',
+      environment: 'development',
       authURL: 'http://locahost'
     },
     staging: {
-      description: 'staging',
+      environment: 'staging',
       authURL: 'http://staging.spatch.co'
     },
     production: {
-      description: 'production',
+      environment: 'production',
       authURL: 'spatch.co'
     }
 
