@@ -3,5 +3,5 @@ var AppView = require('./views/AppView');
 
 $(function() {
   'use strict';
-  new AppView( { el: '#content' });
+  new AppView( { el: '#app' });
 });
