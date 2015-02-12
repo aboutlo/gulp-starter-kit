@@ -1,0 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300);
+
+body{
+  @include font-smoothing;
+  color: #555;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+}

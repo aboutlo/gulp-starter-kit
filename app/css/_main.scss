@@ -1,0 +1,25 @@
+.main{
+  position:absolute;
+  width: 400px;
+  height: 300px;
+  border:1px solid black;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.main__user{
+  font-weight: bold;
+  height: 50%;
+}
+
+.main__status{
+  height: 50%;
+}
+
+.main__status--green{
+  color:green;
+  height: 50%;
+}
