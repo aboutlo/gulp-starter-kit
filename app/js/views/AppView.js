@@ -5,48 +5,42 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
-//var EventBus = require('../utils/EventBus').EventBus();
-var UserActions = require('../actions/UserActions');
+
 var config = require('../config');
 var User = require('../models/user');
-var MainView = require('./MainView');
+var LoginView = require('../views/LoginView');
+var MainView = require('../views/MainView');
 
 
 var AppView = Backbone.View.extend({
 
-  main: require('../templates/status.tpl'),
-  footer: require('../templates/footer.tpl'),
-
   initialize: function(){
-    //this.setElement(options.el);
-    console.log('AppView register to GlobalEvent');
+    this.model = new User();
+    this.listenTo(this.model,'change',this.render);
+    this.render();
+  },
 
-    //EventBus.on('GLOBAL:TEST',function(e){
-    //  console.log('APp get global event:' + e);
-    //});
+  _switchView: function(view) {
+    if (this.currentView) {
+      this.currentView.remove();
+    }
 
+    this.$el.html(view.el);
+    view.render();
 
-    this.user = new User({username:'Anonymoys',status:'offline'});
-    this.mainView = new MainView({el: '#main', model:this.user});
-    this.$footer = this.$el.find('#footer');
-
-    this.listenTo(this.user,'change', this.render);
-
-    UserActions.authenticate('smith','1234');
-
-    //this.user.set({ userName:'Anonymous', status:'offline'});
-
+    this.currentView = view;
+    return this.currentView;
   },
 
   render: function(){
-    this.mainView.render();
-    //this.$main.html(this.main(this.user.attributes));
-    this.$footer.html(this.footer(config));
+    if (!this.model.get('authenticated')){
+      this._switchView(new LoginView({model:this.model}));
+    } else {
+      this._switchView(new MainView({model:this.model}));
+    }
     return this;
   }
 
 });
-
-AppView.Dispatcher = _.extend({}, Backbone.Events);
 
 module.exports = AppView;
