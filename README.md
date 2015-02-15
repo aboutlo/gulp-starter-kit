@@ -1,7 +1,7 @@
-# BBF (Browserify + Backbone + Flux Pattern) 
+# JS Factory  
 ============
 
-This projext is based on <https//github.com/greypants/gulp-starter> but has been heavily adapted to my needs
+This project is based on <https//github.com/greypants/gulp-starter> but has been heavily adapted to my needs
 
 Includes the following tools, tasks, and workflows:
 
@@ -105,6 +105,7 @@ All App settings have been abstracted into a centralized config object in `app/c
 Add any property you need. The properties are filled reading the object `environments` in `gulp/config.js` (default:development) 
 
 ## TODO
+- check if underscore is included twice.
 - configure bucket name as external resource
 - set gzip level to 9.
 - add watch options to mochify if env === development and remove from watch task

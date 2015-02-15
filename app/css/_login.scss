@@ -7,26 +7,26 @@
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-}
 
-.login__errors {
-  color:red;
-}
+  &__errors {
+    color:red;
+  }
 
-.login___label {
-  display: block;
-  margin: 0.5em;
-  width: 100%;
-}
+  &__label{
+    display: block;
+    margin: 0.5em;
+    width: 100%;
+  }
 
-.login__field{
-  display: block;
-  padding: 0.5em;
-  width: 100%;
-}
+  &__field{
+    display: block;
+    padding: 0.5em;
+    width: 100%;
+  }
 
-.login__button{
-  display: inline-block;
-  padding: 0.5em;
-}
+  &__buttion{
+    display: inline-block;
+    padding: 0.5em;
+  }
 
+}
