@@ -25,21 +25,22 @@ var MainView = Backbone.View.extend({
     this.listenTo(this.model,'invalid',this.render);
     this.$el.html(this.template());
     this.delegateEvents();
+    this.$errors = this.$el.find('.login__errors');
   },
 
   onSubmit: function(e){
     e.preventDefault();
-    var username = this.$el.find('#username_field').val();
-    var password = this.$el.find('#password_field').val();
+    var username = this.$el.find('input[name="username"]').val();
+    var password = this.$el.find('input[name="password"]').val();
 
     UserActions.authenticate(username, password);
   },
 
   render: function(){
-    this.$el.find('#errors').empty();
+    this.$errors.empty();
 
     _.each(this.model.validationError,function(error){
-      this.$el.find('#errors').append(this.templateItemError({error:error}));
+      this.$errors.append(this.templateItemError({error:error}));
     },this);
 
     return this;

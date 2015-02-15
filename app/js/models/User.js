@@ -49,12 +49,14 @@ module.exports = Backbone.Model.extend({
 
   // fake auth
   authenticate:function(){
-    if (this.get('username') !== 'admin@foo.com' || this.get('password') !== 'admin'){
+    if (this.get('username') === 'admin@foo.com' && this.get('password') === 'admin'){
+      this.set({authenticated:true, status:'online'});
+    }else{
       this.validationError = 'Wrong username or password';
       this.set({authenticated:false},{silent:true});
       this.trigger('invalid');
     }
-    this.set({authenticated:true, status:'online'});
+
   }
 
 });
