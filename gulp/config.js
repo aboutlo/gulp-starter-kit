@@ -58,13 +58,17 @@ module.exports = {
       environment: 'development',
       authURL: 'http://locahost'
     },
+    testing: {
+      environment: 'testing',
+      authURL: 'http://locahost'
+    },
     staging: {
       environment: 'staging',
-      authURL: 'http://staging.spatch.co'
+      authURL: 'http://staging.example.com'
     },
     production: {
       environment: 'production',
-      authURL: 'spatch.co'
+      authURL: 'http://example.com'
     }
 
   }
