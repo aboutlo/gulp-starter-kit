@@ -8,18 +8,24 @@
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   text-align: center;
-}
 
-.main__user{
-  font-weight: bold;
-  height: 50%;
-}
+  &__user{
+    font-weight: bold;
+    height: 50%;
+  }
 
-.main__status{
-  height: 50%;
-}
+  &__status{
+    height: 50%;
+  }
 
-.main__status--green{
-  color:green;
-  height: 50%;
+  &__status--green{
+    color:green;
+    height: 50%;
+  }
+
+  &__environment{
+    position: absolute;
+    bottom: 0;
+  }
+
 }

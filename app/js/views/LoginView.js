@@ -6,6 +6,7 @@ var Backbone = require('backbone');
 Backbone.$ = $;
 
 var UserActions = require('../actions/UserActions');
+var config = require('../config');
 
 var MainView = Backbone.View.extend({
 
@@ -23,7 +24,7 @@ var MainView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model,'change',this.render);
     this.listenTo(this.model,'invalid',this.render);
-    this.$el.html(this.template());
+    this.$el.html(this.template(config));
     this.delegateEvents();
     this.$errors = this.$el.find('.login__errors');
   },
