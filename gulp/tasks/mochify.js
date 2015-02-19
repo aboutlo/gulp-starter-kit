@@ -6,7 +6,7 @@ var config  = require('../config').js;
 var handleErrors = require('../util/handleErrors');
 var preprocessify = require('preprocessify');
 var gutil = require('gulp-util');
-//var environments  = require('../config').environments;
+var environments  = require('../config').environments;
 
 
 var mochifyTask = function (options) {
@@ -26,8 +26,9 @@ var mochifyTask = function (options) {
     templateOpts: {
       interpolate: /\{\{(.+?)\}\}/g}
   })
-    //.transform(preprocessify(environments.development)) TODO
-    .bundle();//.on('error', handleErrors);
+    .transform(preprocessify(environments.development))
+    .on('error', handleErrors)
+    .bundle();//
 
 };
 module.exports = mochifyTask;
