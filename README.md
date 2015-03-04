@@ -8,14 +8,16 @@ Includes the following tools, tasks, and workflows:
 - [Browserify](http://browserify.org/) (with [browserify-shim](https://github.com/thlorenz/browserify-shim))
 - [Watchify](https://github.com/substack/watchify) (caching version of browserify for super fast rebuilds)
 - [SASS](http://sass-lang.com/) (super fast libsass with [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
+- [asset revisioning](https://github.com/sindresorhus/gulp-rev) (appending content hash to filenames: unicorn.css → unicorn-098f6bcd.css)
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
 - [Image optimizationn](https://www.npmjs.com/package/gulp-imagemin)
-- [jstify](http://TODO) for compile underscore template
-- [Mochify](https://TODO) for run mocha tests
-- [Chai](https://TODO) for `expect` in the tests
-- [Gulp-s3-upload](https://TODO) for deploy on AWS s3
+- [jstify](https://github.com/zertosh/jstify) for compile underscore template
+- [Mochify](https://github.com/mantoni/mochify.js) for run mocha via browserify pipeline
+- [Chai](http://chaijs.com/api/bdd/) for `expect` in the tests
+- [SinonJS](http://sinonjs.org/) for `stub,mock,spy` in the tests
+- [Gulp-s3-upload](https://github.com/clineamb/gulp-s3-upload) for deploy, gzip assets and handle caching on AWS s3
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
-- Multi environment deploy via s3 (development|staging|production)
+- Multi environment (development|testing|staging|production)
 
 
 ## Install
@@ -56,7 +58,7 @@ Run tests once ( Ideal on CI )
 ## Deploy
 it prepare all files in `dist` directory then deploy them to the configured s3 bucket 
 
-    NODE_ENV=development|staging|production BUILD_NUMBER=0.0.1 gulp deploy
+    NODE_ENV=development|testing|staging|production BUILD_NUMBER=0.0.1 gulp deploy
 
 Example
 
@@ -106,10 +108,5 @@ Add any property you need. The properties are filled reading the object `environ
 
 ## TODO
 - check if underscore is included twice.
-- configure bucket name as external resource
-- set gzip level to 9.
-- add watch options to mochify if env === development and remove from watch task
 - create consolify task stating from mochify
 - Multiple bundles with shared dependencies (Need review)
-- on development environment first time sourceMapping and templates are missing. Task dependencies need a review 
-- Use https://www.npmjs.com/package/gulp-rev to create unique js and css files.
