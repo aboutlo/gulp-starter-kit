@@ -51,24 +51,29 @@ module.exports = {
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
     htmlSrc: dest + '/*.html',
+    imgSrc: dest + '/images/**/*.*',
     dist: dist
   },
   environments:{
     development: {
       environment: 'development',
-      authURL: 'http://locahost'
+      authURL: 'http://locahost',
+      bucket:  'development-app.example.com'
     },
     testing: {
       environment: 'testing',
-      authURL: 'http://locahost'
+      authURL: 'http://locahost',
+      bucket:  'testing-app.example.com'
     },
     staging: {
       environment: 'staging',
-      authURL: 'http://staging.example.com'
+      authURL: 'http://staging.example.com',
+      bucket:  'staging-app.example.com'
     },
     production: {
       environment: 'production',
-      authURL: 'http://example.com'
+      authURL: 'http://example.com',
+      bucket:  'app.example.com'
     }
 
   }
