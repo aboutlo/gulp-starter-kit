@@ -2,6 +2,7 @@ var dest = './build';
 var src = './app';
 var test = './test';
 var dist = './dist';
+var fs = require('fs');
 
 module.exports = {
   browserSync: {
@@ -48,6 +49,8 @@ module.exports = {
     }]
   },
   deploy: {
+    credentials: JSON.parse(fs.readFileSync(process.env.HOME + '/.aws/credentials/credentials.json')),
+    region: 'eu-west-1', // AWS s3 region
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
     htmlSrc: dest + '/*.html',
@@ -58,22 +61,22 @@ module.exports = {
     development: {
       environment: 'development',
       authURL: 'http://locahost',
-      bucket:  'development-app.example.com'
+      bucket:  'dev.example'
     },
     testing: {
       environment: 'testing',
       authURL: 'http://locahost',
-      bucket:  'testing-app.example.com'
+      bucket:  'testing.example'
     },
     staging: {
       environment: 'staging',
       authURL: 'http://staging.example.com',
-      bucket:  'staging-app.example.com'
+      bucket:  'staging.example'
     },
     production: {
       environment: 'production',
       authURL: 'http://example.com',
-      bucket:  'app.example.com'
+      bucket:  'example'
     }
 
   }

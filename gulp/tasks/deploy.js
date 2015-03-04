@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var config  = require('../config').deploy;
+var environments  = require('../config').environments;
 var fs = require('fs');
 var gzip = require('gulp-gzip');
 var cachedSrc = [config.dist + '/**/*.{png,ico,js,css}'];
@@ -10,16 +11,15 @@ var noCachedSrc = [config.dist + '/index.html'];
 gulp.task('deploy', ['release'],function(){
 
   // S3 with JSON
-  var credentials = JSON.parse(fs.readFileSync(process.env.HOME + '/.aws/credentials/credentials.json'));
+
   var s3 = require('gulp-s3-upload')({
-    accessKeyId:        credentials.accessKeyId,
-    secretAccessKey:    credentials.secretAccessKey,
-    region: 'eu-west-1'
+    accessKeyId:        config.credentials.accessKeyId,
+    secretAccessKey:    config.credentials.secretAccessKey,
+    region:             config.region
   });
 
   var environment = process.env.NODE_ENV || 'development';
-  var bucket = config.environments[environment];
-  gutil.log('deploy to:' + bucket);
+  var bucket = environments[environment].bucket;
 
   gulp.src(cachedSrc)
     .pipe(gzip({ append: false, gzipOptions: { level: 9 } }))   //not append .gz file extension

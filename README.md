@@ -90,6 +90,9 @@ Then put a JSON `credentials.json` inside the directory:
       'accessKeyId': 'AAAAAAAAAAAAAAAAAAAAA',
       'secretAccessKey': '000000000000000000000000000000000000000000'
     }
+    
+Once the app has been deployed activated `Enable website hosting` and point to index.html as Index Document
+
 
 #### App
 All App settings have been abstracted into a centralized config object in `app/config.js`.
