@@ -1,4 +1,4 @@
-# JS Factory  
+# Browserify Backbone Factory (BBF)  
 ============
 
 This project is based on <https//github.com/greypants/gulp-starter> but has been heavily adapted to my needs
@@ -18,6 +18,7 @@ Includes the following tools, tasks, and workflows:
 - [Gulp-s3-upload](https://github.com/clineamb/gulp-s3-upload) for deploy, gzip assets and handle caching on AWS s3
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
 - Multi environment (development|testing|staging|production)
+- Flux architecture integrated with backbone 
 
 
 ## Install
@@ -110,6 +111,7 @@ All App settings have been abstracted into a centralized config object in `app/c
 Add any property you need. The properties are filled reading the object `environments` in `gulp/config.js` (default:development) 
 
 ## TODO
+- addin icon font https://github.com/cognitom/symbols-for-sketch
 - check if underscore is included twice.
 - create consolify task stating from mochify
 - Multiple bundles with shared dependencies (Need review)

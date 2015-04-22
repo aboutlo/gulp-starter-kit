@@ -5,14 +5,11 @@ var Actions = require('./actions');
 var UserActions;
 UserActions = {
 
-  authenticate: function (username,password) {
+  authenticate: function (credentials) {
 
     Dispatcher.dispatch({
       actionType: Actions.USER_AUTHENTICATE,
-      user: {
-        username: username,
-        password: password
-      }
+      credentials: credentials
     });
 
   }

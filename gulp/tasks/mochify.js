@@ -13,7 +13,7 @@ var mochifyTask = function (options) {
   options = options || {};
 
   var envinronment = process.env.NODE_ENV ||'development';
-  gutil.log('mochify envinronment:', envinronment)
+  gutil.log('mochify envinronment:', envinronment);
 
   mochify( config.test, {
     reporter : 'spec',

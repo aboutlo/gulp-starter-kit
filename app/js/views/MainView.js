@@ -1,9 +1,11 @@
 'use strict';
 
-var $ = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
-Backbone.$ = $;
+var $         = require('jquery');
+var _         = require('underscore');
+var Backbone  = require('backbone');
+Backbone.$    = $;
+
+var SessionStore = require('../stores/SessionStore');
 
 var MainView = Backbone.View.extend({
 
@@ -17,11 +19,11 @@ var MainView = Backbone.View.extend({
   },
 
   initialize: function(){
-    this.listenTo(this.model,'change',this.render);
+    this.listenTo(SessionStore,'change',this.render);
   },
 
   render: function(){
-    this.$el.html(this.template(this.model.attributes));
+    this.$el.html(this.template(SessionStore.getSession()));
     return this;
   }
 
