@@ -1,5 +1,6 @@
-# Browserify Backbone Factory (BBF)  
-============
+# JS Starter Kit    
+
+## What 
 
 This project is based on <https//github.com/greypants/gulp-starter> but has been heavily adapted to my needs
 
