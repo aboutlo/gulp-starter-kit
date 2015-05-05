@@ -2,7 +2,7 @@
 
 ## What 
 
-This project is based on <https//github.com/greypants/gulp-starter> but has been heavily adapted to my needs
+This project is based on [gulp-starter](https//github.com/greypants/gulp-starter) but has been heavily adapted to my needs
 
 Includes the following tools, tasks, and workflows:
 
