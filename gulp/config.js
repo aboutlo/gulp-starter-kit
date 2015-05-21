@@ -60,12 +60,12 @@ module.exports = {
   environments:{
     development: {
       environment: 'development',
-      authURL: 'http://locahost',
+      authURL: 'http://localhost',
       bucket:  'dev.example'
     },
     testing: {
       environment: 'testing',
-      authURL: 'http://locahost',
+      authURL: 'http://localhost',
       bucket:  'testing.example'
     },
     staging: {
