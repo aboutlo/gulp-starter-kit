@@ -21,6 +21,13 @@
     "type": "git",
     "url": "git@github.com:aboutlo/bbf.git"
   },
+  "scripts": {
+    "dev": "npm install && ./node_modules/.bin/gulp",
+    "test": "./node_modules/.bin/gulp test",
+    "build": "npm run clean && ./node_modules/.bin/gulp release",
+    "deploy": "./node_modules/.bin/gulp deploy",
+    "clean": "rm -rf ./tmp && rm -rf ./build && rm -rf ./dist"
+  },
   "browserify": {
     "transform": [
       "browserify-shim"

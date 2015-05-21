@@ -29,47 +29,41 @@ Includes the following tools, tasks, and workflows:
     
 ### Install npm dependencies
 
-    npm install
+    
 
 This runs through all dependencies listed in `package.json` and downloads them to a `node_modules` folder in your project directory.
 
-### The `gulp` command
+### development
 
-To run the version of gulp installed local to the project, in the root of your this project, you'd run
-
-    ./node_modules/.bin/gulp
-
-**WAT.** Why can't I just run `gulp`? Well, you could install gulp globally with `npm install -g gulp`, which will add the gulp script to your global bin folder, but it's always better to use the version that's specified in your project's package.json.  My solution to this is to simply alias `./node_modules/.bin/gulp` to `gulp`. Open up `~/.zshrc` or `~./bashrc` and add the following line:
-
-    alias gulp='node_modules/.bin/gulp'
-    
-Now, running `gulp` in the project directory will use the version specified and installed from the `package.json` file.
-
-#### Run gulp and be amazed.
-
-    gulp
-    
-This will run the `default` gulp task defined in `gulp/tasks/default.js`, which has the following task dependencies: `['sass', 'images', 'markup', 'watch']`
-
+    npm run dev 
 
 ## test 
 Run tests once ( Ideal on CI )
 
-    gulp test
+    npm run test
+
+## Build / Release
+it prepare all files in `dist` directory  
+
+    NODE_ENV=development|testing|staging|production BUILD_NUMBER=0.0.1 npm run build
+
+Example
+
+    NODE_ENV=development run build
 
 ## Deploy
 it prepare all files in `dist` directory then deploy them to the configured s3 bucket 
 
-    NODE_ENV=development|testing|staging|production BUILD_NUMBER=0.0.1 gulp deploy
+    NODE_ENV=development|testing|staging|production BUILD_NUMBER=0.0.1 npm run deploy
 
 Example
 
-    NODE_ENV=development gulp deploy
+    NODE_ENV=development npm run deploy
     
 ## clean 
 Destroy build and dist directories
 
-    gulp clean
+    npm run clean
     
 #### Other Gulp tasks:
   - The `sass` task compiles your css files.
@@ -112,7 +106,7 @@ All App settings have been abstracted into a centralized config object in `app/c
 Add any property you need. The properties are filled reading the object `environments` in `gulp/config.js` (default:development) 
 
 ## TODO
-- addin icon font https://github.com/cognitom/symbols-for-sketch
-- check if underscore is included twice.
+- add icon font https://github.com/cognitom/symbols-for-sketch
+- check if underscore is included twice. (browerify-shim)
 - create consolify task stating from mochify
 - Multiple bundles with shared dependencies (Need review)
