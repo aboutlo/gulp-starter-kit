@@ -60,7 +60,7 @@
     "gulp-util": "^3.0.0",
     "jshint-stylish": "^1.0.0",
     "jstify": "^0.7.0",
-    "lodash": "^2.4.1",
+    "lodash": "^4.17.19",
     "mochify": "^2.1.1",
     "preprocessify": "0.0.3",
     "pretty-hrtime": "~0.2.1",
